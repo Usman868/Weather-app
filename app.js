@@ -8,7 +8,7 @@ const temperature = document.querySelector("#temperature");
 const weatherDescription = document.querySelector("#weatherDescription");
 const humidity = document.querySelector("#humidity");
 const windSpeed = document.querySelector("#windSpeed");
-const weatherIcon = document.querySelector("#weatherIcon");
+const weatherIcon = document.querySelector("#weather-image");
 
 const showWeatherByLocation = async (location) => {
     try {
@@ -20,6 +20,7 @@ const showWeatherByLocation = async (location) => {
         const data = await res.json();
 
         updateWeather(data);
+        console.log(data)
 
     } catch (err) {
         alert(err.message);
@@ -49,20 +50,25 @@ const updateWeather = (data) => {
     humidity.innerText = `${data.main.humidity}%`;
     windSpeed.innerText = `${data.wind.speed} km/h`;
 
+
     // Simple icon logic
     const condition = data.weather[0].main.toLowerCase();
     setBackgroundByWeather(condition);
 
     if (condition == "Clouds") {
-        weatherIcon.src = "images/clouds.png";
+        weatherIcon.src= "./images/clouds.png";
     } else if (condition == "Clear") {
-        weatherIcon.src = "images/clear.png";
+        weatherIcon.src = "./images/clear.png";
     } else if (condition == "Rain") {
-        weatherIcon.src = "images/rain.png";
+        weatherIcon.src = "./images/rain.png";
     } else if (condition == "Drizzle") {
-        weatherIcon.src = "images/drizzle.png";
-    } else if (condition == "Mist") {
-        weatherIcon.src = "images/mist.png";
+        weatherIcon.src = "./images/drizzle.png";
+    } else if (condition == "mist" || "mist" ||"Smoke" ||"haze" ||"dust" ||"fog" ||"sand" ||"ash") {
+        weatherIcon.src = "./images/mist.png";
+    } else if (condition == "Snow") {
+        weatherIcon.src = "./images/snow.png";
+    } else if (condition == "Thunderstorm") {
+        weatherIcon.src = "./images/thunderstorm.png";
     }
 };
 
@@ -120,15 +126,6 @@ const setBackgroundByWeather = (condition = "") => {
         case "sand":
         case "ash":
             setBg("#3a3a3a", "#1f1f1f");
-            break;
-
-        /* ---- Extreme ---- */
-        case "squall":
-            setBg("#0b132b", "#1c2541");
-            break;
-
-        case "tornado":
-            setBg("#000000", "#434343");
             break;
 
         default:

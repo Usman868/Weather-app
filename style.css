@@ -45,13 +45,14 @@ body {
   opacity: 0.9;
 }
 
-/* .weather-icon {
-
-} */
-#weather-image{
-    width: 170px;
+#weatherDescription{
+  color: #fff !important ;
+}
+#weather-image {
+  width: 170px;
   margin-top: 30px;
 }
+
 .temp {
   font-size: 3.5rem;
   font-weight: bold;
