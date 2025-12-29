@@ -55,19 +55,19 @@ const updateWeather = (data) => {
     const condition = data.weather[0].main.toLowerCase();
     setBackgroundByWeather(condition);
 
-    if (condition == "Clouds") {
+    if (condition.includes("clouds")) {
         weatherIcon.src= "./images/clouds.png";
-    } else if (condition == "Clear") {
+    } else if (condition.includes("clear")) {
         weatherIcon.src = "./images/clear.png";
-    } else if (condition == "Rain") {
+    } else if (condition.includes("rain")) {
         weatherIcon.src = "./images/rain.png";
-    } else if (condition == "Drizzle") {
+    } else if (condition.includes("drizzle")) {
         weatherIcon.src = "./images/drizzle.png";
-    } else if (condition == "mist" || "mist" ||"Smoke" ||"haze" ||"dust" ||"fog" ||"sand" ||"ash") {
+    } else if (condition "mist" ||"smoke" ||"haze" ||"dust" ||"fog" ||"sand" ||"ash") {
         weatherIcon.src = "./images/mist.png";
-    } else if (condition == "Snow") {
+    } else if (condition.includes("snow")) {
         weatherIcon.src = "./images/snow.png";
-    } else if (condition == "Thunderstorm") {
+    } else if (condition.includes("thunderstorm")) {
         weatherIcon.src = "./images/thunderstorm.png";
     }
 };
